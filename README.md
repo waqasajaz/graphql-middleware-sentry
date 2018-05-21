@@ -58,4 +58,4 @@ function sentry(options: Options): IMiddleware
 
 ## License
 
-MIT @ Matic Zavadlal
+This project is licensed under the [MIT License](LICENSE.md).
