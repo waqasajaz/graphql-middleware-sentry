@@ -29,7 +29,12 @@
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-config-standard": "^7.0.0",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "semantic-release": "^15.4.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maticzav/graphql-middleware-sentry.git"
+  }
 }
