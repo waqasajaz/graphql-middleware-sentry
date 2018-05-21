@@ -42,7 +42,7 @@ const server = GraphQLServer({
 serve.start(() => `Server running on http://localhost:4000`)
 ```
 
-## API
+## API & Configuration
 
 ```ts
 export interface Options {
@@ -53,8 +53,12 @@ export interface Options {
 function sentry(options: Options): IMiddleware
 ```
 
-* DSN: Sentry DSN url.
-* config: A config object passed down to `Raven.config`.
+### Options
+
+| property | required | description                                                             |
+| -------- | -------- | ----------------------------------------------------------------------- |
+| `dsn`    | true     | Your [Sentry DSN](https://docs.sentry.io/quickstart/#configure-the-dsn) |
+| `config` | false    | A config object for Raven                                               |
 
 ## License
 
