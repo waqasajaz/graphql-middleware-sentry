@@ -50,7 +50,7 @@ export interface Options {
   config?: ConstructorOptions
 }
 
-function sentry(options: Options): IMiddleware
+function sentry(options: Options): IMiddlewareFunction
 ```
 
 ### Options

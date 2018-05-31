@@ -1,5 +1,5 @@
 import { config as raven, captureException, ConstructorOptions } from 'raven'
-import { IMiddleware } from 'graphql-middleware'
+import { IMiddlewareFunction } from 'graphql-middleware/dist/types'
 
 // Options for graphql-middleware-sentry
 export interface Options {
@@ -13,7 +13,7 @@ export class SentryError extends Error {
   }
 }
 
-export const sentry = (options: Options): IMiddleware => {
+export const sentry = (options: Options): IMiddlewareFunction => {
   // Check if Sentry DSN is present
   if (!options.dsn) {
     throw new SentryError(`Missing dsn parameter in configuration.`)
