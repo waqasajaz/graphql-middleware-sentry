@@ -5,6 +5,7 @@ import { IMiddlewareFunction } from 'graphql-middleware/dist/types'
 export interface Options {
   dsn: string
   config?: ConstructorOptions
+  forwardErrors?: boolean
 }
 
 export class SentryError extends Error {
@@ -28,7 +29,13 @@ export const sentry = (options: Options): IMiddlewareFunction => {
       const res = await resolve(parent, args, ctx, info)
       return res
     } catch (err) {
+      // Capture exception
       captureException(err)
+
+      // Forward error
+      if (options.forwardErrors) {
+        throw err
+      }
     }
   }
 }

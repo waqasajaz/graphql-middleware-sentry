@@ -55,10 +55,11 @@ function sentry(options: Options): IMiddlewareFunction
 
 ### Options
 
-| property | required | description                                                             |
-| -------- | -------- | ----------------------------------------------------------------------- |
-| `dsn`    | true     | Your [Sentry DSN](https://docs.sentry.io/quickstart/#configure-the-dsn) |
-| `config` | false    | A config object for Raven                                               |
+| property        | required | description                                                             |
+| --------------- | -------- | ----------------------------------------------------------------------- |
+| `dsn`           | true     | Your [Sentry DSN](https://docs.sentry.io/quickstart/#configure-the-dsn) |
+| `config`        | false    | A config object for Raven                                               |
+| `forwardErrors` | false    | Should middleware forward errors to the client or block them.           |
 
 ## License
 
