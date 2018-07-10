@@ -30,7 +30,9 @@ export const sentry = (options: Options): IMiddlewareFunction => {
       return res
     } catch (err) {
       // Capture exception
-      captureException(err)
+      captureException(err, {
+        req: ctx.request,
+      })
 
       // Forward error
       if (options.forwardErrors) {
