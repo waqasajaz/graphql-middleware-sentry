@@ -48,6 +48,7 @@ serve.start(() => `Server running on http://localhost:4000`)
 export interface Options {
   dsn: string
   config?: ConstructorOptions
+  forwardErrors?: boolean
 }
 
 function sentry(options: Options): IMiddlewareFunction

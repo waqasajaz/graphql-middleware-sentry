@@ -14,11 +14,22 @@ export class SentryError extends Error {
   }
 }
 
-export const sentry = (options: Options): IMiddlewareFunction => {
+function normalizeOptions(options: Options): Options {
   // Check if Sentry DSN is present
   if (!options.dsn) {
     throw new SentryError(`Missing dsn parameter in configuration.`)
   }
+
+  return {
+    dsn: options.dsn,
+    config: options.config !== undefined ? options.config : {},
+    forwardErrors:
+      options.forwardErrors !== undefined ? options.forwardErrors : false,
+  }
+}
+
+export const sentry = (_options: Options): IMiddlewareFunction => {
+  const options = normalizeOptions(_options)
 
   // Configure and install Raven
   raven(options.dsn, options.config).install()
